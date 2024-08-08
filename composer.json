@@ -1,0 +1,36 @@
+{
+	"name": "tobimori/dreamform-date-field",
+	"description": "Powerful custom Date & Time fields for Kirby DreamForm, powered by easepick",
+	"type": "kirby-plugin",
+	"version": "1.0.0",
+	"license": "MIT",
+	"homepage": "https://plugins.andkindness.com/dreamform",
+	"authors": [
+		{
+			"name": "Tobias Möritz",
+			"email": "tobias@moeritz.io"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"tobimori\\DreamFormDateField\\": "classes"
+		}
+	},
+	"require": {
+		"php": ">=8.2.0",
+		"getkirby/composer-installer": "^1.2.1"
+	},
+	"scripts": {
+		"dist": "composer install --no-dev --optimize-autoloader",
+		"fix": "php-cs-fixer fix"
+	},
+	"config": {
+		"optimize-autoloader": true,
+		"allow-plugins": {
+			"getkirby/composer-installer": true
+		}
+	},
+	"extra": {
+		"kirby-cms-path": false
+	}
+}
