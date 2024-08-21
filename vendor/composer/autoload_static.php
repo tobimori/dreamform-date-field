@@ -35,7 +35,6 @@ class ComposerStaticInit00f43ac9a6d51c61f613c108aecf0b41
         'Kirby\\ComposerInstaller\\Plugin' => __DIR__ . '/..' . '/getkirby/composer-installer/src/ComposerInstaller/Plugin.php',
         'Kirby\\ComposerInstaller\\PluginInstaller' => __DIR__ . '/..' . '/getkirby/composer-installer/src/ComposerInstaller/PluginInstaller.php',
         'tobimori\\DreamFormDateField\\DateField' => __DIR__ . '/../..' . '/classes/DateField.php',
-        'tobimori\\DreamFormDateField\\TimeField' => __DIR__ . '/../..' . '/classes/TimeField.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

@@ -3,35 +3,46 @@
 @include_once __DIR__ . '/vendor/autoload.php';
 
 use Kirby\Cms\App;
+use Kirby\Data\Json;
+use Kirby\Filesystem\Dir;
+use Kirby\Filesystem\F;
+use Kirby\Toolkit\A;
 use tobimori\DreamForm\DreamForm;
 use tobimori\DreamFormDateField\DateField;
-use tobimori\DreamFormDateField\TimeField;
 
 if (!class_exists('tobimori\DreamForm\DreamForm')) {
 	throw new Exception('[DreamForm Date Field] This plugin requires the DreamForm plugin (https://plugins.getkirby.com/tobimori/dreamform) to be installed.');
 }
 
-DreamForm::register(DateField::class, TimeField::class);
+DreamForm::register(DateField::class);
 
 App::plugin(
 	name: 'tobimori/dreamform-date-field',
 	extends: [
 		'options' => [
 			'script' => true, // disable loading and initialization of the script
-			'config' => [
-				// custom config injected to the script
-				// the whole object is replaced
-				// https://easepick.com/configurator/
-
-				'lang' => 'en-US',
-				'format' => 'DD.MM.YYYY',
-				'timeFormat'	=> 'HH:mm',
-			]
+			'config' => [] // custom config injected to the script
 		],
 		'snippets' => [
-			'dreamform/easepick/custom.css' => __DIR__ . '/snippets/easepick/custom.css.php',
 			'dreamform/fields/date' => __DIR__ . '/snippets/fields/date.php',
-			'dreamform/fields/time' => __DIR__ . '/snippets/fields/time.php',
-		]
+		],
+		// get all files from /translations and register them as language files
+		'translations' => A::keyBy(
+			A::map(
+				Dir::read(__DIR__ . '/translations'),
+				function ($file) {
+					$translations = [];
+					foreach (Json::read(__DIR__ . '/translations/' . $file) as $key => $value) {
+						$translations["dreamform.dateField.{$key}"] = $value;
+					}
+
+					return A::merge(
+						['lang' => F::name($file)],
+						$translations
+					);
+				}
+			),
+			'lang'
+		)
 	]
 );

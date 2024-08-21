@@ -12,5 +12,4 @@ return array(
     'Kirby\\ComposerInstaller\\Plugin' => $vendorDir . '/getkirby/composer-installer/src/ComposerInstaller/Plugin.php',
     'Kirby\\ComposerInstaller\\PluginInstaller' => $vendorDir . '/getkirby/composer-installer/src/ComposerInstaller/PluginInstaller.php',
     'tobimori\\DreamFormDateField\\DateField' => $baseDir . '/classes/DateField.php',
-    'tobimori\\DreamFormDateField\\TimeField' => $baseDir . '/classes/TimeField.php',
 );

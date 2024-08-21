@@ -9,7 +9,7 @@ class DateField extends Field
 	public static function blueprint(): array
 	{
 		return [
-			'name' => t('dreamform.fields.date.name'),
+			'name' => t('dreamform.dateField.name'),
 			'preview' => 'date-field',
 			'wysiwyg' => true,
 			'icon' => 'calendar',
@@ -20,6 +20,14 @@ class DateField extends Field
 						'key' => 'dreamform/fields/key',
 						'label' => 'dreamform/fields/label',
 						'placeholder' => 'dreamform/fields/placeholder',
+						'timepicker' => [
+							'label' => t('dreamform.dateField.hasTimePicker'),
+							'type' => 'toggle',
+							'text' => [
+								t('dreamform.dateField.date'),
+								t('dreamform.dateField.timeAndDate')
+							]
+						]
 					]
 				],
 				'validation' => [
@@ -37,7 +45,8 @@ class DateField extends Field
 	{
 		return [
 			'label' => $this->block()->label()->value() ?? t('dreamform.fields.date.name'),
-			'type' => 'date'
+			'type' => 'date',
+			'time' => $this->block()->hasTimePicker()->toBool()
 		];
 	}
 
