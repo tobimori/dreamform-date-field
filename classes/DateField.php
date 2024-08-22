@@ -64,7 +64,7 @@ class DateField extends Field
 
 	public static function group(): string
 	{
-		return 'date';
+		return 'common';
 	}
 
 	public static function type(): string
