@@ -1,6 +1,6 @@
 {
 	"name": "tobimori/dreamform-date-field",
-	"description": "Powerful custom Date & Time fields for Kirby DreamForm, powered by easepick",
+	"description": "Powerful custom Date & Time fields for Kirby DreamForm, powered by Air Datepicker",
 	"type": "kirby-plugin",
 	"version": "1.0.0",
 	"license": "MIT",

@@ -25,6 +25,7 @@ App::plugin(
 		],
 		'snippets' => [
 			'dreamform/fields/date' => __DIR__ . '/snippets/fields/date.php',
+			'dreamform/fields/date/script' => __DIR__ . '/snippets/script.php'
 		],
 		// get all files from /translations and register them as language files
 		'translations' => A::keyBy(

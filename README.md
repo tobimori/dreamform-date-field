@@ -1,16 +1,16 @@
 # DreamForm Date Field
 
 This plugin adds a Date & Time field to [DreamForm](https://plugins.andkindness.com/dreamform).
-It's packaged as separate plugin, since it requires the [`easepick`](https://easepick.com/) library and is generally more opinionated than the core DreamForm fields.
+It's packaged as separate plugin, since it requires the [Air Datepicker](https://air-datepicker.com/) library and is generally more opinionated than the core DreamForm fields.
 
 This plugin requires a working installation of DreamForm as well as a [valid DreamForm license](https://plugins.andkindness.com/dreamform/pricing) in order to be run on a public server.
 
 ## License
 
-#### easepick
+#### Air Datepicker
 
-[GNU General Public License Version 2 or later](https://www.gnu.org/licenses/gpl-3.0.html)
-Copyright © 2021-2024, [Rinat G.](https://github.com/wakirin)
+[MIT License](./assets/LICENSE)
+Copyright © [Timofey Marochkin](https://github.com/t1m0n)
 
 #### DreamForm integration
 
