@@ -2,7 +2,7 @@
 	"name": "tobimori/dreamform-date-field",
 	"description": "Powerful custom Date & Time fields for Kirby DreamForm, powered by Air Datepicker",
 	"type": "kirby-plugin",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"license": "MIT",
 	"homepage": "https://plugins.andkindness.com/dreamform",
 	"authors": [
@@ -17,7 +17,7 @@
 		}
 	},
 	"require": {
-		"php": ">=8.2.0",
+		"php": ">=8.3.0",
 		"getkirby/composer-installer": "^1.2.1"
 	},
 	"scripts": {
@@ -32,5 +32,8 @@
 	},
 	"extra": {
 		"kirby-cms-path": false
+	},
+	"require-dev": {
+		"tobimori/kirby-dreamform": "^2"
 	}
 }

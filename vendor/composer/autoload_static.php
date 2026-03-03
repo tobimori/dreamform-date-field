@@ -7,22 +7,22 @@ namespace Composer\Autoload;
 class ComposerStaticInit00f43ac9a6d51c61f613c108aecf0b41
 {
     public static $prefixLengthsPsr4 = array (
-        't' => 
+        't' =>
         array (
             'tobimori\\DreamFormDateField\\' => 28,
         ),
-        'K' => 
+        'K' =>
         array (
             'Kirby\\' => 6,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'tobimori\\DreamFormDateField\\' => 
+        'tobimori\\DreamFormDateField\\' =>
         array (
             0 => __DIR__ . '/../..' . '/classes',
         ),
-        'Kirby\\' => 
+        'Kirby\\' =>
         array (
             0 => __DIR__ . '/..' . '/getkirby/composer-installer/src',
         ),

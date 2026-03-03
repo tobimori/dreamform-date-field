@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "00f43ac9a6d51c61f613c108aecf0b41",
+    "content-hash": "c26616f4981f48aa1ba136f6029fd2a8",
     "packages": [
         {
             "name": "getkirby/composer-installer",
@@ -54,15 +54,70 @@
             "time": "2020-12-28T12:54:39+00:00"
         }
     ],
-    "packages-dev": [],
+    "packages-dev": [
+        {
+            "name": "tobimori/kirby-dreamform",
+            "version": "2.1.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tobimori/kirby-dreamform.git",
+                "reference": "520d5740bed7022f407186e1914c673dd961863b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tobimori/kirby-dreamform/zipball/520d5740bed7022f407186e1914c673dd961863b",
+                "reference": "520d5740bed7022f407186e1914c673dd961863b",
+                "shasum": ""
+            },
+            "require": {
+                "getkirby/composer-installer": "^1.2.1",
+                "php": ">=8.3.0"
+            },
+            "require-dev": {
+                "getkirby/cms": "^5"
+            },
+            "type": "kirby-plugin",
+            "extra": {
+                "kirby-cms-path": false
+            },
+            "autoload": {
+                "psr-4": {
+                    "tobimori\\DreamForm\\": "classes"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Tobias Möritz",
+                    "email": "tobias@moeritz.io"
+                }
+            ],
+            "description": "Kirby DreamForm is an opiniated form builder plugin for Kirby CMS 4+ that makes forms work like magic",
+            "homepage": "https://plugins.andkindness.com/dreamform",
+            "support": {
+                "issues": "https://github.com/tobimori/kirby-dreamform/issues",
+                "source": "https://github.com/tobimori/kirby-dreamform/tree/2.1.5"
+            },
+            "funding": [
+                {
+                    "url": "https://plugins.andkindness.com/dreamform/pricing",
+                    "type": "custom"
+                }
+            ],
+            "time": "2026-01-23T16:32:29+00:00"
+        }
+    ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {},
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=8.2.0"
+        "php": ">=8.3.0"
     },
-    "platform-dev": [],
-    "plugin-api-version": "2.6.0"
+    "platform-dev": {},
+    "plugin-api-version": "2.9.0"
 }

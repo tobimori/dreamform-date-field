@@ -6,6 +6,8 @@ use tobimori\DreamForm\Fields\Field;
 
 class DateField extends Field
 {
+	public const TYPE = 'date';
+
 	public static function blueprint(): array
 	{
 		return [
@@ -46,7 +48,7 @@ class DateField extends Field
 		return [
 			'label' => $this->block()->label()->value() ?? t('dreamform.fields.date.name'),
 			'type' => 'date',
-			'time' => $this->block()->hasTimePicker()->toBool()
+			'time' => $this->block()->timePicker()->toBool()
 		];
 	}
 
