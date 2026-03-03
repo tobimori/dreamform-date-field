@@ -2,6 +2,7 @@
 
 namespace tobimori\DreamFormDateField;
 
+use DateTime;
 use tobimori\DreamForm\Fields\Field;
 
 class DateField extends Field
@@ -29,6 +30,10 @@ class DateField extends Field
 								t('dreamform.dateField.date'),
 								t('dreamform.dateField.timeAndDate')
 							]
+						],
+						'defaultToToday' => [
+							'label' => t('dreamform.dateField.defaultToToday'),
+							'type' => 'toggle',
 						]
 					]
 				],
@@ -37,6 +42,18 @@ class DateField extends Field
 					'fields' => [
 						'required' => 'dreamform/fields/required',
 						'errorMessage' => 'dreamform/fields/error-message',
+						'futureOnly' => [
+							'label' => t('dreamform.dateField.futureOnly'),
+							'type' => 'toggle',
+						],
+						'minDate' => [
+							'label' => t('dreamform.dateField.minDate'),
+							'type' => 'date',
+						],
+						'maxDate' => [
+							'label' => t('dreamform.dateField.maxDate'),
+							'type' => 'date',
+						],
 					]
 				]
 			]
@@ -52,6 +69,33 @@ class DateField extends Field
 		];
 	}
 
+	/**
+	 * Converts an AirDatepicker format string to a PHP date format string.
+	 */
+	private static function adpToPhpFormat(string $format): string
+	{
+		return str_replace(
+			['yyyy', 'MM', 'dd', 'HH', 'hh', 'mm', 'aa'],
+			['Y', 'm', 'd', 'H', 'h', 'i', 'A'],
+			$format
+		);
+	}
+
+	/**
+	 * Parses a date string submitted from the frontend using the locale's date format.
+	 */
+	private function parseSubmittedDate(string $value): ?DateTime
+	{
+		$format = static::adpToPhpFormat(t('dreamform.dateField.dateFormat'));
+
+		if ($this->block()->timepicker()->toBool()) {
+			$format .= ' ' . static::adpToPhpFormat(t('dreamform.dateField.timeFormat'));
+		}
+
+		$date = DateTime::createFromFormat($format, $value);
+		return $date ?: null;
+	}
+
 	public function validate(): true|string
 	{
 		if (
@@ -59,6 +103,37 @@ class DateField extends Field
 			&& $this->value()->isEmpty()
 		) {
 			return $this->errorMessage();
+		}
+
+		if ($this->value()->isEmpty()) {
+			return true;
+		}
+
+		$date = $this->parseSubmittedDate($this->value()->toString());
+		if (!$date) {
+			return true;
+		}
+
+		if ($this->block()->futureOnly()->toBool()) {
+			$today = new DateTime('today');
+			if ($date < $today) {
+				return $this->errorMessage();
+			}
+		}
+
+		if ($this->block()->minDate()->isNotEmpty()) {
+			$minDate = new DateTime($this->block()->minDate()->toString());
+			if ($date < $minDate) {
+				return $this->errorMessage();
+			}
+		}
+
+		if ($this->block()->maxDate()->isNotEmpty()) {
+			$maxDate = new DateTime($this->block()->maxDate()->toString());
+			$maxDate->setTime(23, 59, 59);
+			if ($date > $maxDate) {
+				return $this->errorMessage();
+			}
 		}
 
 		return true;

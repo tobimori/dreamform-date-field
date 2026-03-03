@@ -49,6 +49,10 @@
 	"monthsShort.october": "Oct",
 	"monthsShort.november": "Nov",
 	"monthsShort.december": "Dec",
+	"futureOnly": "Future dates only",
+	"minDate": "Minimum date",
+	"maxDate": "Maximum date",
+	"defaultToToday": "Default to today",
 	"dateFormat": "MM/dd/yyyy",
 	"timeFormat": "hh:mm aa",
 	"firstDay": 0

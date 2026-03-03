@@ -49,6 +49,10 @@
 	"monthsShort.october": "Okt",
 	"monthsShort.november": "Nov",
 	"monthsShort.december": "Dez",
+	"futureOnly": "Nur zukünftige Daten",
+	"minDate": "Frühestes Datum",
+	"maxDate": "Spätestes Datum",
+	"defaultToToday": "Standardwert: Heute",
 	"dateFormat": "dd.MM.yyyy",
 	"timeFormat": "HH:mm",
 	"firstDay": 1
